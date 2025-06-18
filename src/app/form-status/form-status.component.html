@@ -1,1 +1,4 @@
-<p>form-status works!</p>
+<div class="status-message"
+[ngClass]="{'error': isError, 'success': !isError}">
+    {{message}}
+</div>

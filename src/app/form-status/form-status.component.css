@@ -1,0 +1,18 @@
+.status-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+  
+  .status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
