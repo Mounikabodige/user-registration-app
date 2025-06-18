@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'user-registration-app';
+  
+  isLoggedIn = false;
+
+toggleLogin() {
+  this.isLoggedIn = !this.isLoggedIn;
+}
+
 }

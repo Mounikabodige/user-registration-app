@@ -3,4 +3,8 @@
     <a routerLink="/users"> Users List</a>
 </nav>
 
+<button (click)="toggleLogin()">
+    {{ isLoggedIn ? 'Logout' : 'Login' }}
+  </button>
+  
 <router-outlet></router-outlet>
