@@ -1,10 +1,13 @@
 <nav>
+
+    <a routerLink="/home"> Home </a>
     <a routerLink="/register"> Register</a>
     <a routerLink="/users"> Users List</a>
+    <a routerLink="/admin"> Admin </a>
 </nav>
 
 <button (click)="toggleLogin()">
-    {{ isLoggedIn ? 'Logout' : 'Login' }}
+    {{ auth.isLoggedIn ? 'Logout' : 'Login' }}
   </button>
   
 <router-outlet></router-outlet>

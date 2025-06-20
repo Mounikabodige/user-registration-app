@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'user-registration-app';
   
-  isLoggedIn = false;
+  constructor(public auth: AuthService) {}
+
 
 toggleLogin() {
-  this.isLoggedIn = !this.isLoggedIn;
+  this.auth.isLoggedIn ? this.auth.logout() : this.auth.login();
 }
 
 }

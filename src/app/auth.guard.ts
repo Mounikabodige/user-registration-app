@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -7,10 +8,10 @@ import { CanActivate, Router } from '@angular/router';
 export class AuthGuard implements CanActivate {
   isLoggedIn = false; 
 
-  constructor(private router: Router) {}
+  constructor(private auth : AuthService,private router: Router) {}
 
   canActivate(): boolean {
-    if (this.isLoggedIn) {
+    if (this.auth.isLoggedIn) {
       return true;
     } else {
       alert('Access denied. Please log in.');
