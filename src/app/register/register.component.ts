@@ -1,34 +1,31 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormStatusComponent } from '../form-status/form-status.component';
 
 @Component({
+  standalone:true,
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  imports: [CommonModule, ReactiveFormsModule, FormStatusComponent]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
+  submitted = false;
 
-  registrationForm!: FormGroup;
+  registrationForm = this.fb.group({
+    name: ['', Validators.required],
+    email: ['',[Validators.required, Validators.email]],
+    password: ['', [Validators.minLength(6), Validators.required]]
+  })
   
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.registrationForm = this.fb.group({
-      name: ['', Validators.required],
-      email:['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-    });
-  }
+  onSubmit() {
+    this.submitted = true;
 
-  onSubmit(): void{
     if(this.registrationForm.valid){
-      alert('Success');
-      console.log('Form submitted:', this.registrationForm.value);
-    } else{
-      console.log('Form is invalid');
+      console.log('Fotm Submitted', this.registrationForm.value);
     }
-
-    this.registrationForm.reset();
   }
-
 }

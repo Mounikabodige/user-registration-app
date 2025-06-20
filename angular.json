@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "user-registration-app:build:production"
+              "buildTarget": "user-registration-app:build:production"
             },
             "development": {
-              "browserTarget": "user-registration-app:build:development"
+              "buildTarget": "user-registration-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "user-registration-app:build"
+            "buildTarget": "user-registration-app:build"
           }
         },
         "test": {

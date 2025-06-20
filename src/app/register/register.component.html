@@ -1,11 +1,12 @@
 <h2>User Registration</h2>
 
-
-<app-form-status *ngIf="registrationForm.invalid && registrationForm.touched"
-[message]="'Please fix the errors in the form.'"
-[isError]="true"
->
-</app-form-status>
+@if(registrationForm.invalid && (registrationForm.dirty || submitted)){
+  <app-form-status 
+  [message]="'Please fix the errors in the form.'"
+  [isError]="true"
+  >
+  </app-form-status>
+}
 
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
   <label>

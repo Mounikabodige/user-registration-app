@@ -1,7 +1,16 @@
 <h2>User List</h2>
-<ul *ngIf="users.length">
-  <li *ngFor="let user of users">
-    {{ user.name }} — {{ user.email }}
-  </li>
-</ul>
-<p *ngIf="!users.length">Loading users...</p>
+
+  @if(users.length){
+   
+  <ul> 
+    @for(user of users; track user.name){
+      <li>
+        {{ user.name }} — {{ user.email }}
+    </li>
+    }
+  </ul> 
+  }
+
+@if(!users.length){
+  <p >Loading users...</p>
+}
